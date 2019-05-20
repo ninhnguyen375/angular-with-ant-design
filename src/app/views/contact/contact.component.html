@@ -1,0 +1,47 @@
+<nz-row [nzType]="'flex'" [nzJustify]="'center'">
+  <nz-col>
+    <!-- Title -->
+    <h1 style="color:gray;text-align: center">Contact</h1>
+
+
+    <h1 *ngIf="isSubmitSuccess" style="color:greenyellow;text-align: center">Submit Success</h1>
+
+    <!-- Form -->
+    <form *ngIf="!isSubmitSuccess" nz-form [formGroup]="validateForm" class="login-form"
+      (ngSubmit)="hanldeSubmit()">
+      <!-- Name -->
+      <nz-form-item>
+        <nz-form-control>
+          <!-- Input name -->
+          <nz-input-group [nzPrefix]="prefixUser">
+            <input type="text" nz-input formControlName="name" placeholder="name" />
+          </nz-input-group>
+          <!-- Explain Errors -->
+          <nz-form-explain
+            *ngIf="validateForm.get('name')?.dirty && validateForm.get('name')?.errors">Please
+            input your name!</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- Message -->
+      <nz-form-item>
+        <nz-form-control>
+          <!-- Text area -->
+          <textarea name="message" placeholder="Your message here" nz-input
+            formControlName="message" cols="30" rows="4"></textarea>
+          <!-- Explain Errors -->
+          <nz-form-explain
+            *ngIf="validateForm.get('message')?.dirty && validateForm.get('message')?.errors">Please
+            input your message!</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- SUBMIT -->
+      <button type="submit" nz-button [nzType]="'primary'">Submit</button>
+    </form>
+
+    <!-- Declare icons -->
+    <ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+    <ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>
+  </nz-col>
+</nz-row>

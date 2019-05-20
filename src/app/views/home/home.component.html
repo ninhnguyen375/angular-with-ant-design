@@ -1,0 +1,16 @@
+<nz-row nzType="flex" nzJustify="center">
+  <nz-col>
+    <h1 style="text-align: center; color:gray">Home</h1>
+    <div *ngIf="users">
+      <nz-card *ngFor="let user of users.data" style="margin-top: 20px">
+        <nz-row [nzType]="'flex'" [nzAlign]="'middle'">
+          <nz-avatar [nzSrc]="user.avatar" style="margin-right: 20px"></nz-avatar>
+          <nz-card-meta [nzDescription]="user.email"
+            [nzTitle]="user.first_name + ' ' + user.last_name">
+          </nz-card-meta>
+        </nz-row>
+      </nz-card>
+    </div>
+
+  </nz-col>
+</nz-row>

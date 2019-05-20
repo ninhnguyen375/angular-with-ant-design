@@ -1,0 +1,12 @@
+.nav-bar {
+  box-shadow: 0 0 5px lightgray;
+  .logo {
+    font-size: 1.3em;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  a {
+    color: gray;
+  }
+}
